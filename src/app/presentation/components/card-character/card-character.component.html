@@ -1,0 +1,10 @@
+<div class="main-card">
+  <img [src]="character.image" alt="" class="main-card__image">
+  <div class="main-card__info">
+    <p class="info-text"><span class="info-text__bold">Name: </span>{{character.name}}</p>
+    <p class="info-text"><span class="info-text__bold">Species: </span> {{character.species}}</p>
+    <p class="info-text"><span class="info-text__bold">Origin: </span> {{character.origin.name}}</p>
+    <p class="info-text"><span class="info-text__bold">Number of episodes: </span>{{character.episode.length}}</p>
+    <p class="info-text"><span class="info-text__bold">Status: </span>{{character.status}}</p>
+  </div>
+</div>

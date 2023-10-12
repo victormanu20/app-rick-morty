@@ -1,0 +1,37 @@
+.main-card{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px 12px;
+  background-color: gray;
+  border-radius: 10px;
+  height: auto;
+  @media only screen and (min-width: 620px) {
+    height: 400px;
+  }
+
+}
+.main-card__image{
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.main-card__info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.info-text{
+  color: black;
+  font-size: 16px;
+  text-align: center;
+}
+
+.info-text__bold{
+  font-weight: bold;
+}

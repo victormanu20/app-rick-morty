@@ -1,0 +1,6 @@
+<ul class="list-cards">
+  <li *ngFor="let character of characters" class="list-cards__item" (click)="openCharacterDetails(character)">
+    <app-card-character [character]="character" ></app-card-character>
+  </li>
+</ul>
+<app-character-modal *ngIf="modalOpen"></app-character-modal>
