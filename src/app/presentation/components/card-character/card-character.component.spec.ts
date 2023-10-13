@@ -15,9 +15,6 @@ describe('CardCharacterComponent', () => {
     component = fixture.componentInstance;
   });
 
-  // it('should create the component', () => {
-  //   expect(component).toBeTruthy();
-  // });
 
   it('should render the card HTML', () => {
     const character: Character = {
@@ -37,28 +34,20 @@ describe('CardCharacterComponent', () => {
       url: '',
       created: ''
     };
-
-    // Pass the mock character to the component's input
     component.character = character;
     fixture.detectChanges();
 
-    // Query the DOM for elements
     const cardElement = fixture.nativeElement.querySelector('.main-card');
     const imageElement = fixture.nativeElement.querySelector('.main-card__image');
     const infoTextElements = fixture.nativeElement.querySelectorAll('.info-text');
 
-    // Perform expectations to verify the rendering
     expect(cardElement).toBeTruthy();
     expect(imageElement).toBeTruthy();
     expect(infoTextElements.length).toBe(5);
-
-    // Additional expectations for specific content
     expect(infoTextElements[0].textContent).toContain('Name: Rick Sanchez');
     expect(infoTextElements[1].textContent).toContain('Species: Human');
     expect(infoTextElements[2].textContent).toContain('Origin: Earth (C-137)');
     expect(infoTextElements[3].textContent).toContain('Number of episodes: 2');
     expect(infoTextElements[4].textContent).toContain('Status: Alive');
   });
-
-  // Puedes agregar más pruebas aquí para verificar otros aspectos del componente.
 });
