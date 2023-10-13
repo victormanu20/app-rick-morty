@@ -1,25 +1,4 @@
-import { Character, ResponseHttpCharacters } from "../models/character.model";
-
-export class TaskViewModel {
-  constructor(private id: number, private name: string, private type: string, private image:string ) {}
-
-  getId() {
-    return this.id;
-  }
-
-  getName() {
-    return this.name;
-  }
-
-  getTypePerson() {
-    return this.type;
-  }
-
-  getImage(){
-    return this.image;
-  }
-
-}
+import { Character } from "../models/character.model";
 
 export class CharacterClass implements Character {
   id: number;

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import Swal from 'sweetalert2';
-import { ErrorHttpProps } from '../models/handle-error.model';
 
 @Injectable({
   providedIn: 'root'

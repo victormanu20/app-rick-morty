@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { Character } from 'src/app/domain/models/character.model';
 import { CharacterClass } from 'src/app/domain/view-models/task.viewmodel';
+import { Character } from 'src/app/domain/models/character.model';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card-character',

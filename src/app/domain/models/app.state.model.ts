@@ -1,4 +1,4 @@
-import { Character, ResponseHttpCharacters } from "./character.model";
+import { Character } from "./character.model";
 
 export interface AppState {
   selectedCharacter: Character | null;

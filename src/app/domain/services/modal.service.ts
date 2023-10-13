@@ -9,11 +9,11 @@ export class ModalService {
   private modalOpen = new BehaviorSubject<boolean>(false);
   modalOpen$ = this.modalOpen.asObservable();
 
-  openModal() {
+  openModal():void{
     this.modalOpen.next(true);
   }
 
-  closeModal() {
+  closeModal():void{
     this.modalOpen.next(false);
   }
 

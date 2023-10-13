@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
-import { Store, select } from '@ngrx/store';
-import {  selectCharacter } from 'src/app/core/states/app.actions';
-import { Character, ResponseHttpCharacters } from 'src/app/domain/models/character.model';
+import { CharacterService } from 'src/app/domain/services/character.service';
+import {  selectCharacterAction } from 'src/app/core/states/app.actions';
 import { ModalService } from 'src/app/domain/services/modal.service';
-import { TaskService } from 'src/app/domain/services/task.service';
-import { TaskViewModel } from 'src/app/domain/view-models/task.viewmodel';
+import { Character } from 'src/app/domain/models/character.model';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-task-list',
@@ -16,27 +15,23 @@ export class TaskListComponent {
   public selectedCharacter: Character | null = null;
   public modalOpen: boolean = false;
 
-  constructor(private taskService: TaskService, private store: Store,private modalService: ModalService) {
-    modalService.modalOpen$.subscribe((open) => (this.modalOpen = open));
+  constructor(private taskService: CharacterService, private store: Store,private modalService: ModalService) {
+    modalService.modalOpen$.subscribe((open:boolean) => (this.modalOpen = open));
   }
 
   ngOnInit() {
-
     this.taskService.getCharacters().subscribe((characters:Character[]) => {
       this.characters = characters
     });
   }
 
-  onCharacterSelected(character:Character ) {
-    this.store.dispatch(selectCharacter(  character  )); // Despacha la acción al seleccionar un personaje
-    this.selectedCharacter = character; // Actualiza el personaje seleccionado localmente
+  onCharacterSelected(character:Character ): void{
+    this.selectedCharacter = character;
   }
 
-  openCharacterDetails(character: any) {
-    // Abre el modal y pasa el personaje al componente del modal
+  openCharacterDetails(character: Character ): void {
+    this.store.dispatch(selectCharacterAction({character}));
     this.modalService.openModal();
-    // También puedes almacenar el personaje en una propiedad para pasarlo al modal
-    // this.selectedCharacter = character;
   }
 
 }

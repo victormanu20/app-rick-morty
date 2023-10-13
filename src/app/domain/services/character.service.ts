@@ -1,20 +1,18 @@
-import { Injectable } from '@angular/core';
-import { HttpsService } from 'src/app/core/api/https.service';
 import { Character, ResponseHttpCharacters } from '../models/character.model';
+import { HttpsService } from 'src/app/core/api/https.service';
 import { CharacterClass } from '../view-models/task.viewmodel';
-import { Observable } from 'rxjs';
 import { NotificationService } from './notification.service';
 import { SuccessHttp } from '../models/handle-error.model';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TaskService {
+export class CharacterService {
   public characters: Character [] = [ new CharacterClass()]  ;
   constructor(private apiService: HttpsService, private NotificationService:NotificationService) {}
 
-  getTasksFromApi() {
-  }
   public getCharacters() :Observable<Character []> {
     // return this.apiService.getRickAndMortyCharacters();
     return new Observable((suscribe) => {

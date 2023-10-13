@@ -1,15 +1,25 @@
 import { AppState } from 'src/app/domain/models/app.state.model';
-import * as RickAndMortyActions  from './app.actions';
-import { createReducer, on } from '@ngrx/store';
+import {selectCharacterAction}  from './app.actions';
+import { createFeatureSelector, createReducer, createSelector, on } from '@ngrx/store';
+import { CharacterClass } from 'src/app/domain/view-models/task.viewmodel';
 
 const initialState: AppState = {
-  selectedCharacter: null,
+  selectedCharacter: new CharacterClass()
 };
 
-export const characterReducer = createReducer(
+const _characterReducer = createReducer(
   initialState,
-  on(RickAndMortyActions.selectCharacter, (state, { character }) => ({
-    ...state,
-    selectedCharacter: character,
-  }))
+  on(selectCharacterAction, (state, { character }) => ({...state, selectedCharacter: character,})),
+
+);
+
+export const selectCharacterState = createFeatureSelector<AppState>('selectedCharacter');
+
+export function characterReducer(state:any, action:any) {
+  return _characterReducer(state, action);
+};
+
+export const selectSelectedCharacter = createSelector(
+  selectCharacterState,
+  ({selectedCharacter}) => selectedCharacter
 );

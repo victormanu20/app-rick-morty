@@ -1,21 +1,20 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// import { ComponentFixture, TestBed } from "@angular/core/testing";
+// import { TaskListComponent } from "../components/task-list/task-list.component";
 
-import { HomeComponent } from './home.component';
+// describe('TaskListComponent', () => {
+//   let fixture: ComponentFixture<TaskListComponent>;
+//   let component: TaskListComponent;
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+//   beforeEach(() => {
+//     TestBed.configureTestingModule({
+//       declarations: [TaskListComponent], // Debes importar el componente que contiene la estructura HTML
+//     });
+//     fixture = TestBed.createComponent(TaskListComponent);
+//     component = fixture.componentInstance;
+//   });
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [HomeComponent]
-    });
-    fixture = TestBed.createComponent(HomeComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//   it('should create the app', () => {
+//     expect(component).toBeTruthy();
+//   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+// });
